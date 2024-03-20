@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h2>Lista de Veículos</h2>
+    <nz-table #filterTable [nzData]="veiculos" nzTableLayout="fixed">
+      <thead>
+        <tr>
+          <th nzWidth="20%">Marca</th>
+          <th nzWidth="20%">Modelo</th>
+          <th nzWidth="10%">Ano</th>
+          <th nzWidth="20%">Placa</th>
+          <th nzWidth="20%">Renavam</th>
+          <th nzWidth="40%">Chassi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let veiculo of filterTable.data">
+          <td>{{ veiculo.marca }}</td>
+          <td>{{ veiculo.modelo }}</td>
+          <td>{{ veiculo.ano }}</td>
+          <td>{{ veiculo.placa }}</td>
+          <td>{{ veiculo.renavam }}</td>
+          <td>{{ veiculo.chassi }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>

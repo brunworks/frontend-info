@@ -1,0 +1,29 @@
+/* Definição das cores */
+$cor-primaria: #ffa500; /* Laranja */
+$cor-secundaria: #d3d3d3; /* Cinza claro */
+$cor-terciaria: #a9a9a9; /* Cinza escuro */
+
+.navbar-custom {
+    background-color: $cor-primaria; /* Aplica a cor primária ao fundo da navbar */
+  
+    .navbar-brand, .nav-link {
+      color: $cor-terciaria; /* Aplica a cor terciária ao texto da navbar */
+    }
+  
+    .nav-link.active {
+      color: $cor-secundaria; /* Aplica a cor secundária ao link ativo */
+      background-color: rgba(0, 0, 0, 0.1); /* Sutil realce no fundo do link ativo */
+    }
+  
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='$cor-terciaria (uri-encode)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      /* Esta é uma forma de alterar a cor do ícone do toggler. 
+         Note que isso requer que a cor seja URL-encoded se ela for complexa. 
+         Para a cor #a9a9a9, a string URL-encoded correspondente pode ser colocada diretamente. */
+    }
+  }
+  
+  .container-custom {
+    margin-top: 20px; /* Ajuste conforme necessário */
+  }
+  
