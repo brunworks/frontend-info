@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { VeiculosListComponent } from './components/veiculos-list/veiculos-list.component';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
 registerLocaleData(pt);
 
@@ -28,7 +29,9 @@ registerLocaleData(pt);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzTableModule
+    NzTableModule,
+    NzPaginationModule
+    
   ],
   providers: [
     { provide: NZ_I18N, useValue: pt_BR },
