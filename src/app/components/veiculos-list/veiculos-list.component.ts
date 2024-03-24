@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-veiculos-list',
@@ -8,7 +8,41 @@ import { Component, Input, OnInit } from '@angular/core';
 export class VeiculosListComponent implements OnInit{
   @Input() veiculos: any[] = [];
 
-  ngOnInit():void {
-    console.log(this.veiculos);
+  pageIndex: number = 1;
+  pageSize: number = 5;
+  total: number = 0;
+  currentPageData: any[] = [];
+
+  constructor(private cdr: ChangeDetectorRef){
   }
+
+  ngOnInit():void {  
+    this.total = this.veiculos.length
+    this.updateCurrentPageData();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['veiculos']) {
+      this.updateList();
+    }
+  }
+
+  updateList(): void {
+    if (this.veiculos) {
+      this.total = this.veiculos.length;
+      this.updateCurrentPageData();
+    }
+  }
+
+  updateCurrentPageData(): void {
+    this.currentPageData = this.veiculos.slice((this.pageIndex - 1) * this.pageSize, this.pageIndex * this.pageSize);
+    this.cdr.markForCheck();
+  }
+
+  onPageChange(event: number): void {
+    this.pageIndex = event;
+    this.updateCurrentPageData();
+  }
+
+  
 }
