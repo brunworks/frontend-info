@@ -17,6 +17,12 @@ export class HomeComponent implements OnInit {
       this.veiculos = data;
     });
 
-    console.log(this.veiculos)
   }
+
+  // Método para atualizar a lista de veículos com os filtrados
+  onVeiculosFiltered(filteredVeiculos: any[]): void {
+     this.veiculos = filteredVeiculos;
+  }
+
 }
+
