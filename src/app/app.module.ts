@@ -37,6 +37,7 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     NzTableModule,
     NzPaginationModule,
+    NzDatePickerModule
     
   ],
   providers: [
