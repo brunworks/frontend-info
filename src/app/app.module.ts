@@ -11,9 +11,10 @@ import pt from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
 import { VeiculosListComponent } from './components/veiculos-list/veiculos-list.component';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { HomeComponent } from './pages/home/home.component';
+import { StockCarComponent } from './pages/stock-car/stock-car.component';
 
 registerLocaleData(pt);
 
@@ -21,7 +22,8 @@ registerLocaleData(pt);
   declarations: [
     AppComponent,
     HomeComponent,
-    VeiculosListComponent
+    VeiculosListComponent,
+    StockCarComponent
   ],
   imports: [
     BrowserModule,
