@@ -11,13 +11,11 @@ import pt from '@angular/common/locales/pt';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
 import { VeiculosListComponent } from './components/veiculos-list/veiculos-list.component';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { HomeComponent } from './pages/home/home.component';
+import { StockCarComponent } from './pages/stock-car/stock-car.component';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-
-import { VeiculosFilterComponent } from './components/veiculos-filter/veiculos-filter.component';
-
 
 registerLocaleData(pt);
 
@@ -26,7 +24,7 @@ registerLocaleData(pt);
     AppComponent,
     HomeComponent,
     VeiculosListComponent,
-    VeiculosFilterComponent
+    StockCarComponent
   ],
   imports: [
     BrowserModule,
