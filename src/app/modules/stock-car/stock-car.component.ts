@@ -4,7 +4,8 @@ import { VeiculosService } from 'src/app/services/veiculos.service';
 @Component({
   selector: 'app-stock-car',
   templateUrl: './stock-car.component.html',
-  styleUrls: ['./stock-car.component.scss']
+  styleUrls: ['./stock-car.component.scss'],
+  
 })
 export class StockCarComponent {
 

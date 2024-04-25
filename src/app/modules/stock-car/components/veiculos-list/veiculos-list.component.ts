@@ -17,11 +17,14 @@ export class VeiculosListComponent implements OnInit{
   }
 
   ngOnInit():void {  
+    debugger
+    console.log(this.veiculos)
     this.total = this.veiculos.length
     this.updateCurrentPageData();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    debugger
     if (changes['veiculos']) {
       this.updateList();
     }

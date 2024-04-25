@@ -1,5 +1,6 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,31 +12,38 @@ import pt from '@angular/common/locales/pt';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { VeiculosListComponent } from './components/veiculos-list/veiculos-list.component';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
-import { HomeComponent } from './pages/home/home.component';
-import { StockCarComponent } from './pages/stock-car/stock-car.component';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { StockCarModule } from './modules/stock-car/stock-car.module';
+import { HomeModule } from './modules/home/home.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatInputModule } from '@angular/material/input';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(pt);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    VeiculosListComponent,
-    StockCarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+    HomeModule,
+    StockCarModule,
+    MatInputModule,
     NzTableModule,
     NzPaginationModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    MatFormFieldModule,
+    NgbModule,
+
     
   ],
   providers: [

@@ -1,3 +1,8 @@
+@import './../node_modules/@angular/material/index';
+@import './../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import "./../node_modules/ng-zorro-antd/ng-zorro-antd.min.css";
+//@import "./../node_modules/ng-bootstrap/ng-bootstrap.css";
+
 /* Definição das cores */
 $cor-primaria: #ffa500; /* Laranja */
 $cor-secundaria: #d3d3d3; /* Cinza claro */
@@ -29,3 +34,12 @@ $cor-terciaria: #a9a9a9; /* Cinza escuro */
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

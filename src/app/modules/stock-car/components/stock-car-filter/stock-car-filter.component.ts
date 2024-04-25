@@ -1,22 +1,23 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map } from 'rxjs';
-
-import { VeiculosService } from '../../services/veiculos.service';
+;
 import { Veiculo } from 'src/app/models/veiculo.model';
 
 import { NzI18nService, pt_BR } from 'ng-zorro-antd/i18n';
 import { NzDateMode } from 'ng-zorro-antd/date-picker';
+import { VeiculosService } from 'src/app/services/veiculos.service';
 
 @Component({
-  selector: 'app-veiculos-filter',
-  templateUrl: './veiculos-filter.component.html',
-  styleUrls: ['./veiculos-filter.component.scss']
+  selector: 'app-stock-car-filter',
+  templateUrl: './stock-car-filter.component.html',
+  styleUrls: ['./stock-car-filter.component.scss']
 })
-export class VeiculosFilterComponent implements OnInit {
+export class StockCarFilterComponent implements OnInit {
   filterForm!: FormGroup;
+  anos: number[] = [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012];
 
-  @Output() filtered = new EventEmitter<any[]>();
+  //@Output() filtered = new EventEmitter<any[]>();
 
   constructor(
     private fb: FormBuilder, 
@@ -43,8 +44,12 @@ export class VeiculosFilterComponent implements OnInit {
                  (!ano || veiculo.ano === ano);
         }))
       )
-      .subscribe(filteredVeiculos => this.filtered.emit(filteredVeiculos));
+      //.subscribe(filteredVeiculos => this.filtered.emit(filteredVeiculos));
       this.filterForm.reset();
+  }
+
+  onSubmit(): void {
+
   }
 
   resetarFiltros(): void {
@@ -56,7 +61,7 @@ export class VeiculosFilterComponent implements OnInit {
   emitirTodosVeiculos(): void {
     this.veiculosService.listarVeiculos()
       .subscribe({
-        next: (veiculos) => this.filtered.emit(veiculos),
+       // next: (veiculos) => this.filtered.emit(veiculos),
         error: (error) => console.error('Erro ao obter veículos:', error)
       });
   }

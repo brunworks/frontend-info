@@ -1,0 +1,23 @@
+
+<div class="container-fluid container-form">
+      <mat-form-field>
+          <mat-label>Marca</mat-label>
+      <input matInput>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label>Modelo
+          </mat-label>
+          <input matInput>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label>Chassi
+          </mat-label>
+          <input matInput>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label>Ano</mat-label>
+          <mat-select>
+              <mat-option *ngFor="let ano of anos" [value]="ano">{{ano}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+</div>
