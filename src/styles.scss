@@ -1,10 +1,13 @@
 @import './../node_modules/@angular/material/index';
 @import './../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
 @import "./../node_modules/ng-zorro-antd/ng-zorro-antd.min.css";
+@import "./../node_modules/@cds/core/global.min.css";
+@import './../node_modules/@cds/core/styles/theme.dark.min.css';
+@import './../node_modules/@clr/ui/clr-ui.min.css';
 //@import "./../node_modules/ng-bootstrap/ng-bootstrap.css";
 
 /* Definição das cores */
-$cor-primaria: #ffa500; /* Laranja */
+$cor-primaria: --cds-global-color-blue-800; /* Laranja */
 $cor-secundaria: #d3d3d3; /* Cinza claro */
 $cor-terciaria: #a9a9a9; /* Cinza escuro */
 

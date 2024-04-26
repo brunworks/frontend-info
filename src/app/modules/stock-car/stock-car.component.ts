@@ -14,13 +14,20 @@ export class StockCarComponent {
   constructor(private veiculosService: VeiculosService) { }
 
   ngOnInit(): void {
-    this.veiculosService.listarVeiculos().subscribe(data => {
-      console.log(data)
-      this.veiculos = data;
-    });
+
+    this.carregarVeiculos();
 
     console.log(this.veiculos)
   }
 
+  onFiltered(veiculosFiltrados: any[]): void {
+    this.veiculos = veiculosFiltrados;
+  }
+
+  carregarVeiculos(): void {
+    this.veiculosService.listarVeiculos().subscribe(data => {
+      this.veiculos = data;
+    });
+  }
 
 }

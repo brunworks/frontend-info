@@ -5,12 +5,29 @@
     width: 100%;
 }
 
-.form-row{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.container-form h2{
+    margin-top: 5px;
+    margin-left: 45px;
+    margin-bottom: 20px;
 }
 
 .col-auto{
     margin-left: 30px;
+}
+
+
+clr-combobox{
+    border: none;
+}
+
+.div-button{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.control-btn{
+    margin-left: 10px;
 }

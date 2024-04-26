@@ -1,23 +1,35 @@
 
-<div class="container-fluid container-form">
-      <mat-form-field>
-          <mat-label>Marca</mat-label>
-      <input matInput>
-      </mat-form-field>
-      <mat-form-field>
-          <mat-label>Modelo
-          </mat-label>
-          <input matInput>
-      </mat-form-field>
-      <mat-form-field>
-          <mat-label>Chassi
-          </mat-label>
-          <input matInput>
-      </mat-form-field>
-      <mat-form-field>
-          <mat-label>Ano</mat-label>
-          <mat-select>
-              <mat-option *ngFor="let ano of anos" [value]="ano">{{ano}}</mat-option>
-          </mat-select>
-      </mat-form-field>
+<div class="container-fluid container-form" >
+    <form [formGroup]="filterForm" clrForm 
+          (ngSubmit)="filtrarVeiculos()">
+      <h2>Busca</h2>
+      <div class="clr-form-control">
+        <input clrInput placeholder="Marca" 
+               name="input"  
+               formControlName="marca"/>
+        <input clrInput placeholder="Modelo" 
+               name="modelo"  
+               formControlName="modelo"/>   
+        <input clrInput placeholder="Chassi" 
+               name="chassi"  
+               formControlName="modelo"/>  
+        <select clrSelect name="options" formControlName="ano">
+          <option *ngFor="let ano of anos">{{ano}}</option>
+        </select>                        
+      </div>        
+      <!-- Botão para emitir o valor filtrado -->
+      <div class="div-button">
+        <div>
+          <button class="btn btn-primary" 
+                  type="submit">Filtrar</button>
+        </div>
+        <div class="control-btn">
+          <button class="btn btn-outline" 
+                  type="button>Regular" 
+                  (click)="limparFiltros()">Limpar</button>
+        </div>     
+      </div>
+    </form>
 </div>
+
+

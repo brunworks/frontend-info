@@ -21,6 +21,7 @@ import { HomeModule } from './modules/home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClarityModule, ClrSelectModule } from '@clr/angular';
 
 registerLocaleData(pt);
 
@@ -42,6 +43,8 @@ registerLocaleData(pt);
     NzPaginationModule,
     NzDatePickerModule,
     MatFormFieldModule,
+    ClarityModule,
+    ClrSelectModule,
     NgbModule,
 
     

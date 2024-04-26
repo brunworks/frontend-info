@@ -17,7 +17,7 @@ export class StockCarFilterComponent implements OnInit {
   filterForm!: FormGroup;
   anos: number[] = [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012];
 
-  //@Output() filtered = new EventEmitter<any[]>();
+  @Output() filtered = new EventEmitter<any[]>();
 
   constructor(
     private fb: FormBuilder, 
@@ -30,45 +30,47 @@ export class StockCarFilterComponent implements OnInit {
     this.filterForm = this.fb.group({
       marca: [''],
       modelo: [''],
-      ano: [null]
+      chassi: [''],
+      ano: ['']
     });
   }
 
   filtrarVeiculos(): void {
-    const { marca, modelo, ano } = this.filterForm.value;
-    this.veiculosService.listarVeiculos()
-      .pipe(
-        map(veiculos => veiculos.filter((veiculo: Veiculo) => {
-          return (!marca || veiculo.marca.includes(marca)) &&
-                 (!modelo || veiculo.modelo.includes(modelo)) &&
-                 (!ano || veiculo.ano === ano);
-        }))
-      )
-      //.subscribe(filteredVeiculos => this.filtered.emit(filteredVeiculos));
-      this.filterForm.reset();
+    debugger
+    const filtro = this.filterForm.value;
+    this.veiculosService.listarVeiculos().pipe(
+      map(veiculos => veiculos.filter((veiculo:any) =>
+        (filtro.marca === '' || veiculo.marca.toLowerCase().includes(filtro.marca.toLowerCase())) &&
+        (filtro.modelo === '' || veiculo.modelo.toLowerCase().includes(filtro.modelo.toLowerCase())) &&
+        (filtro.chassi === '' || veiculo.chassi.toLowerCase().includes(filtro.chassi.toLowerCase())) &&
+        (filtro.ano === null || veiculo.ano.toString().includes(filtro.ano.toString()))
+      ))
+    ).subscribe(filteredVeiculos => {
+      this.filtered.emit(filteredVeiculos);
+    });
+
+    //this.filterForm.reset();
+   
   }
 
   onSubmit(): void {
 
   }
 
-  resetarFiltros(): void {
+  limparFiltros(): void {
+    debugger
     this.filterForm.reset();
-    // Opcional: Se você deseja voltar a um estado específico do formulário, configure aqui.
-    this.emitirTodosVeiculos();
+    this.veiculosService.listarVeiculos().subscribe(veiculos => {
+      this.filtered.emit(veiculos);
+    });
   }
-  
-  emitirTodosVeiculos(): void {
-    this.veiculosService.listarVeiculos()
-      .subscribe({
-       // next: (veiculos) => this.filtered.emit(veiculos),
-        error: (error) => console.error('Erro ao obter veículos:', error)
-      });
-  }
+
+
 
   // Método para lidar com a mudança de ano
   onAnoChange(result: Event ): void {
     
   }
+  
 
 }

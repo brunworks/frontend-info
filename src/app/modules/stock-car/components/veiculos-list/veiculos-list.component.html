@@ -1,5 +1,4 @@
-<div class="container mt-4">
-  <h2>Lista de Veículos</h2>
+<div class="container mt-10">
   <nz-table #filterTable [nzData]="currentPageData" [nzShowPagination]="false" nzTableLayout="auto">
     <thead>
       <tr>
@@ -18,7 +17,7 @@
         <td>{{ veiculo.ano }}</td>
         <td>{{ veiculo.placa }}</td>
         <td>{{ veiculo.renavam }}</td>
-        <td>{{ veiculo.chassi }}</td>
+        <td>{{ veiculo.disponibilidade }}</td>
       </tr>
     </tbody>
   </nz-table>
